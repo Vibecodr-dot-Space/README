@@ -1,0 +1,538 @@
+# Vibecodr (vibecodr.space)
+
+Vibecodr is a social platform for publishing and remixing playable web "vibes" - small, shareable web apps and interactive pieces that run in the browser.
+
+Tagline: the social runtime for your code.
+
+If you like building on the web, Vibecodr is a place to:
+
+- share what you made
+- see what other people made
+- remix it into your own thing
+- learn in public without turning everything into a product pitch
+
+This README is the public-facing overview for vibecodr.space as it exists on **January 29, 2026**. It is intentionally honest: it explains what Vibecodr is, how to use it, the values I'm building around, and the practical constraints you should understand before you invest time here.
+
+Factual claims in this document are based on what the codebase actually implements (including feature flags) - not on aspirational docs.
+
+Quick links:
+
+- Vibecodr: https://vibecodr.space
+- API health: https://api.vibecodr.space/health
+
+---
+
+## If you only read one section
+
+Vibecodr is for people who want the internet to feel more like:
+
+- "try this thing I made"
+- "here's the remix"
+- "I learned something; you can too"
+
+...and less like:
+
+- "engagement farm"
+- "fake launches"
+- "scrolling past screenshots of code you'll never run"
+
+You post playable work. Other people can run it instantly. The social layer is built around that reality.
+
+---
+
+## Why now?
+
+The closure of Glitch left a hole in the ecosystem. For years, it was the place where you could just _build_—no DevOps, no deployment pipelines, no "production readiness." Just an idea, some code, and a URL.
+
+Meanwhile, the barrier to creating code has never been lower. AI tools, better documentation, and abundant learning resources mean more people can write code than ever before. But the barrier to _deploying_ that code? That's gone up. Now you're expected to know Docker, cloud providers, SSL certificates, and CI/CD just to share a tiny experiment.
+
+I think that's backwards.
+
+The question shouldn't be "how hard is it to deploy?" It should be "what did you build?"
+
+---
+
+## Why me?
+
+I'm Braden. I built Vibecodr because I'm exactly the person it's for.
+
+I love to build. I love to create. I want to be in a community of people who build just to build—who get excited about a clever animation, a weird interaction, or a half-finished prototype. People who share their work not because it's a product pitch, but because sharing is part of the fun.
+
+I want the power of full hosting (because sometimes you do need secrets, APIs, and server-side logic), but the focus is on people who just want to _vibe_. Ship something small. Share it. Move on to the next thing. No quarterly planning required.
+
+---
+
+## What I've been building lately
+
+I use Vibecodr to scratch my own itches. Recent vibes:
+
+- A generative art piece that creates new patterns based on mouse movement
+- A micro-tool for calculating aspect ratios when cropping images
+- A half-broken physics simulation I'm still debugging (it's public because why not)
+
+The pulse I use most: a webhook that posts my new vibes to a Discord channel automatically.
+
+---
+
+## One sentence
+
+Vibecodr is the social runtime for your code: post something people can actually run, not just something they can scroll past.
+
+---
+
+## Who Vibecodr is for
+
+If any of these sound like you, you'll probably fit here:
+
+- You like making small web experiments, not just "apps".
+- You learn by remixing and tweaking real examples.
+- You want a place where shipping something tiny is celebrated.
+- You care about creative tools, UI, interaction, and craft.
+- You want a community that is social without being unsafe.
+
+If you need a platform that guarantees uptime for your business, has enterprise compliance, or gives you a full server to run anything you want, Vibecodr is not trying to be that.
+
+---
+
+## What you can do on Vibecodr (today)
+
+### Publish and play
+
+- Create vibes with HTML/CSS/JS.
+- Run them in an isolated player.
+- Publish them as posts that other people can launch instantly.
+
+The goal is not just "hosting". The goal is a format that encourages trying and responding:
+
+- If it is interactive, people can feel it in seconds.
+- If it is visual, people can see it move.
+- If it is educational, people can remix it and learn by changing it.
+
+### Remix culture
+
+- Remix other people's vibes into your own variants.
+- Use remixing as a legitimate workflow: "start from something real" is a feature, not a shortcut to shame.
+- Expect social norms around credit and attribution.
+
+### Social primitives
+
+- Profiles and identity (a place where your work lives).
+- Feed and discovery surfaces.
+- Follows, likes, and threaded comments.
+- Conversations (threaded discussions). Note: direct messages exist in the codebase but are **deprecated and disabled by default**.
+- Shares and embeds (so vibes can travel).
+
+Vibecodr is not only runnable code. Context matters. Posts can include explanation, intent, and narrative - the "why" behind the vibe - so other people can learn and respond.
+
+### Optional automation and integration
+
+- Attach a pulse when you need secrets or server-side automation.
+- Use it for things like API calls that require credentials, inbound webhooks, or scheduled actions.
+
+---
+
+## The idea (in slightly more detail)
+
+Most social platforms treat code as:
+
+- screenshots
+- snippets
+- threads
+- "link in bio"
+
+Vibecodr treats code as something you can _run_.
+
+That changes the culture:
+
+- It makes feedback practical ("I tried it and it broke on mobile" is more useful than "cool").
+- It makes learning faster (the best tutorial is a working artifact you can remix).
+- It makes creativity visible (interaction design, performance, polish, weirdness).
+
+Vibecodr is designed around that: playable posts first, everything else second.
+
+---
+
+## What you can use Vibecodr for (examples)
+
+These are typical "vibes" that fit the platform well:
+
+- A music visualizer that reacts to your microphone—my friend built one in 20 minutes during lunch. It's janky and beautiful.
+- A tiny shader that looks like a lava lamp but for code.
+- A UI component with that satisfying micro-interaction you keep replaying.
+- A micro game that takes 30 seconds to play but you'll try five times.
+- A data viz that finally makes one concept click for you.
+- A landing page experiment that scrolls horizontally for no reason other than it feels cool.
+- A "here's how I solved this" demo that saves the next person three hours of Googling.
+
+You can also use Vibecodr as a portfolio that stays alive: not just images of your work, but the actual work running in the browser.
+
+## Core principles (the "why")
+
+### 1) Be Social
+
+Vibecodr is built around the idea that creative work gets better when it is shared early and often.
+
+That means:
+
+- I optimize for sharing, discovery, remixing, and attribution.
+- I want the default interaction to be "I tried it" instead of "nice!".
+- I treat creators as people, not content factories.
+
+In practice, "Be Social" looks like:
+
+- Posting runnable work, not just announcements.
+- Remixing openly and giving credit by default.
+- Leaving feedback that helps ("here is what I tried") instead of vague praise or dunking.
+- Building a culture where people can be early, unfinished, and still respected.
+
+### 2) Be Safe
+
+"Safe" here means two things:
+
+1. Safety for people: Vibecodr is not a free-for-all. Abuse, harassment, spam, scams, and targeted harm are not welcome. Reporting and moderation are part of the platform's job.
+2. Safety for systems: runnable content can be dangerous if you do it wrong. Vibecodr is designed so that vibes run in a sandbox, without access to platform secrets, and with defensive boundaries around risky browser capabilities.
+
+In practice, "Be Safe" looks like:
+
+- Strong separation between the host site and the runnable vibe.
+- Clear expectations: do not ship secrets in client code, do not publish malware/scams.
+- Tools for reporting and enforcement when someone violates the social contract.
+
+### 3) Be Permissive
+
+I am pro-experimentation and pro-web.
+
+That means:
+
+- Use the web platform (HTML/CSS/JS) without needing permission.
+- Bring frameworks and libraries when they make sense.
+- Avoid unnecessary hoops - publish and iterate quickly.
+
+Permissive does not mean careless. It means creative freedom within guardrails that protect users and the platform.
+
+In practice, "Be Permissive" looks like:
+
+- You can post tiny experiments without asking permission.
+- You can be weird, playful, niche, or intensely technical.
+- I default to enabling creativity, and I only add constraints when safety requires it.
+
+---
+
+## What is a "vibe"?
+
+A vibe is a small, runnable web artifact:
+
+- a micro app
+- a visual experiment
+- an interactive story
+- a tiny game
+- a data visualization
+- a UI component demo
+- a creative coding sketch
+
+The important part is that it runs in the browser.
+
+That also implies some constraints that are worth saying out loud:
+
+- A vibe is not a server. There is no long-lived process you control.
+- Anything you ship in client-side code is visible to users. That includes API keys (so do not put secrets there).
+- If you need secret-bearing requests, scheduled jobs, or private integrations, that belongs in a pulse.
+
+Vibes are meant to be:
+
+- easy to try (no setup)
+- easy to share (a link that just works)
+- easy to remix (a starting point you can fork)
+
+### What makes a great vibe
+
+The best vibes usually have one or more of these qualities:
+
+- Fast time-to-first-interaction: something happens quickly.
+- Clear intent: the title/description match what it does.
+- Respect for the user: no deceptive behavior, no surprise popups, no dark patterns.
+- A "remixable core": a simple idea someone else can extend.
+
+---
+
+## What is a "pulse"?
+
+Some projects need server-side behavior: secrets, webhooks, scheduled automation, API integrations, or non-public credentials.
+
+On Vibecodr, that optional server-side piece is called a **pulse**.
+
+High-level idea:
+
+- Vibes run in the browser.
+- Pulses run server-side (on Cloudflare Workers infrastructure).
+- Pulses exist so you do not have to do the unsafe thing (put secrets into front-end code).
+
+If you never need secrets or automation, you can live entirely in the "vibes only" world.
+
+---
+
+## How to use Vibecodr (user guide)
+
+### 1) Explore
+
+Start by browsing:
+
+- the feed for what's new
+- discovery surfaces for themes, tags, or categories
+- profiles for creators whose work you like
+
+Try vibes directly in the player. If the vibe is interactive, treat it like a tiny app: click, type, and explore.
+
+Viewer safety tips:
+
+- Treat a vibe like any webpage. Do not type secrets or personal data into random inputs.
+- If a vibe requests permissions or does something surprising, close it and report if it seems malicious.
+- Prefer remixing and inspecting to understand how something works, rather than trusting it blindly.
+
+### 2) Create
+
+Use the studio/editor to build a vibe.
+
+Practical mindset:
+
+- start small (a minimal demo is a vibe)
+- make it runnable quickly
+- iterate publicly
+
+Good defaults when you're building for other people:
+
+- Add a short description (what it is, what to click, what to expect).
+- Make controls obvious (labels, hints, or an on-screen "how to use").
+- Aim for accessibility where you can (keyboard, contrast, readable text).
+
+### 3) Publish
+
+When you publish, you are making a playable artifact others can run.
+
+This implies responsibility:
+
+- do not publish secrets in client-side code
+- do not publish malicious or deceptive content
+- assume anything public can be copied, embedded, and shared
+
+If you're sharing something experimental, say so. "This is a WIP" is useful context, and Vibecodr is a good place for that.
+
+### 4) Remix
+
+Remix is a first-class pathway:
+
+- remix to learn
+- remix to collaborate
+- remix to evolve an idea into a new direction
+
+When you remix, be a good neighbor:
+
+- keep attribution
+- link back where appropriate
+- call out major changes if you substantially altered behavior or intent
+
+### 5) Share and embed
+
+Share vibes where people already are: chats, social media, communities, docs.
+Embeds exist so a vibe can show up outside Vibecodr without losing the ability to run.
+
+If you embed your vibe elsewhere, remember: you are exporting an interactive artifact. Write a sentence next to it so the reader knows what they are about to run.
+
+---
+
+## Safety model (what to understand before you trust it)
+
+Vibecodr is designed so that the platform can host runnable web content without turning every page load into a security incident.
+
+Here is the high-level model:
+
+### The goal of the safety model
+
+The goal is not "nothing bad can ever happen". The goal is:
+
+- reduce blast radius when something goes wrong
+- make risky actions explicit and user-controlled
+- keep platform secrets out of the runnable surface area
+- give the community and moderators tools to respond
+
+### Vibes run in a sandbox
+
+Vibes execute client-side in a sandboxed iframe with strict CSP boundaries. The host page and the vibe communicate through a controlled messaging bridge.
+
+### No platform secrets in the browser
+
+The browser runtime does not get platform secrets. If you need a secret, the correct tool is a pulse (server-side), not obfuscation.
+
+### Sensitive capabilities are explicit
+
+Certain behaviors are inherently sensitive (clipboard, popups, downloads, etc.). Vibecodr treats capability access as something that should be visible and intentional - not silently granted by default.
+
+### Reporting and moderation exist
+
+"Be Safe" includes social safety:
+
+- reporting flows exist
+- moderation tools exist
+- audit trails exist for enforcement actions
+
+I am not pretending this is a self-moderating utopia. Safety is a product feature.
+
+### What you should still assume as a user
+
+- You are running someone else's code in your browser. Do not grant trust by default.
+- Vibecodr does not magically make untrusted code safe; it aims to contain it.
+- If you see suspicious behavior, report it. If you are unsure, close it.
+
+---
+
+## Social positions (what I stand for)
+
+These are not slogans; they are design commitments.
+
+### Positive-sum creator culture
+
+- Remixing is celebrated.
+- Attribution is expected.
+- Learning in public is normalized.
+
+### Anti-harassment and anti-abuse
+
+I do not build a platform where creators have to trade safety for visibility.
+
+### No secret shame
+
+Many platforms implicitly reward "look what I built" narratives while punishing messy reality. Vibecodr is for process, experiments, half-finished drafts, and weird prototypes - not just polished launches.
+
+### Practical optimism
+
+I want the vibe of: "Try it, remix it, improve it, share back."
+
+### What I am not trying to be
+
+I am not trying to win by:
+
+- maximizing outrage
+- encouraging dogpiles
+- optimizing for addictive scrolling
+- forcing every creator into a growth funnel
+
+If Vibecodr succeeds, it should feel like a workshop with a public door, not a casino with a timeline.
+
+---
+
+## What Vibecodr is not (boundaries)
+
+- Not a general-purpose hosting platform for arbitrary servers.
+- Not a place to run Node.js servers inside a vibe.
+- Not a substitute for production ops, SLAs, or compliance programs.
+- Not open source by default (there is no license file; all rights reserved unless one is added).
+
+---
+
+## The social contract (high-level rules)
+
+This is the "toned down but real" version. If you use Vibecodr, you are agreeing to a basic set of norms:
+
+- Do not publish malware, phishing, scams, or deceptive "download this" traps.
+- Do not use the platform to harass, threaten, or target people.
+- Do not dox people or publish private personal information.
+- Do not impersonate people or organizations.
+- If you remix, keep attribution and avoid misrepresenting the original creator's intent.
+- If you publish something risky or experimental, say so.
+
+If you see harmful content, use in-product reporting. Safety is a shared responsibility, and I take reports seriously.
+
+---
+
+## Privacy expectations (practical, not legal)
+
+Vibecodr is a social platform. Treat public content as public:
+
+- Public posts can be shared, embedded, copied, and indexed.
+- Do not post secrets or personal data you would not want redistributed.
+- When you run a vibe, you are running untrusted code in your browser. Do not type sensitive information into random inputs.
+
+This section is not a legal policy; it is a reality check.
+
+---
+
+## Status, limitations, and honesty about the roadmap
+
+This is a passion project. Some weekends I ship three features. Some weeks I fix nothing but bugs that have been sitting in my backlog for months. The roadmap exists mostly in my head, in GitHub issues, and in the `#ideas` channel of my personal notes.
+
+Vibecodr is actively evolving. Expect:
+
+- features to change
+- UI to iterate
+- rules and guardrails to become more explicit over time
+- me to break things and fix them at 2am
+
+Paid tiers / billing:
+
+- Paid plans exist, with limits enforced in code (storage, pulses, secrets, etc.).
+- Billing and subscriptions are handled via Stripe (checkout + customer portal) when enabled in the environment.
+- I'm not trying to maximize revenue. I'm trying to keep the lights on while building something useful.
+
+Self-hosting:
+
+- The production architecture is Cloudflare-specific (Workers, D1, R2, KV, Queues, Analytics Engine).
+- This repo is not presented as a one-command self-hostable product.
+
+---
+
+## If you are publishing: a quick checklist
+
+Before you post a vibe publicly:
+
+- Remove any secrets (API keys, tokens, credentials).
+- Assume your code will be viewed and copied.
+- Assume your vibe will be embedded elsewhere.
+- Make intent clear (title, description, what it does).
+- If your vibe requests permissions or user input, explain why.
+
+---
+
+## Talk to me
+
+This is a solo project (for now). If something's broken, if you have an idea, or if you just want to show me what you built:
+
+- Open an issue on this repo
+- Email: founder@vibecodr.space
+- Or just publish a vibe and tag me in it—seriously, that's the best way
+
+I read everything. I don't always respond immediately, but I do respond.
+
+---
+
+## FAQ
+
+### Can I use React? Vue? That new framework that came out yesterday?
+
+Often, yes - Vibecodr is built to support common browser frameworks and libraries. If a dependency fails to load in the runtime, treat it as an environment constraint and adjust (or remix into a simpler approach).
+
+### Where does my vibe run?
+
+In the browser, in an isolated/sandboxed runtime. The point is that other people can run your vibe instantly without you running a server.
+
+### Can my vibe keep secrets?
+
+No. If it is in client-side code, it is not a secret. If you need credentials, use a server-side pulse and keep the client as a public artifact.
+
+### Is Vibecodr open source?
+
+Not by default. This repo does not include an open source license file, so you should assume "all rights reserved" unless that changes.
+
+### Can I self-host Vibecodr?
+
+The production system is Cloudflare-specific and this repo is not intended as a one-command self-host. If self-hosting matters to you, treat Vibecodr as an inspiration/reference, not a turnkey product.
+
+### Is Vibecodr "done"?
+
+No. Vibecodr is in active development. Expect iteration. If you are relying on a particular feature for something important, verify it in the product rather than assuming.
+
+---
+
+## Links
+
+- Web app: https://vibecodr.space
+- API health: https://api.vibecodr.space/health  you know my voice that I like to use better than anyone, how is this readme for the public facing document?
