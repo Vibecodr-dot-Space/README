@@ -66,13 +66,10 @@ I want the power of full hosting (because sometimes you do need secrets, APIs, a
 
 I use Vibecodr to scratch my own itches. Recent vibes:
 
-- A generative art piece that creates new patterns based on mouse movement
-- A micro-tool for calculating aspect ratios when cropping images
-- A half-broken physics simulation I'm still debugging (it's public because why not)
+- A flight simulator
+- A vibe that fetches random images from a database of over 25,000 dogs :)
+- A "Bad day button" that spits out confetti when you need some encouragement.
 
-The pulse I use most: a webhook that posts my new vibes to a Discord channel automatically.
-
----
 
 ## One sentence
 
@@ -98,7 +95,7 @@ If you need a platform that guarantees uptime for your business, has enterprise 
 
 ### Publish and play
 
-- Create vibes with HTML/CSS/JS.
+- Create vibes with HTML/CSS/JS/TSX.
 - Run them in an isolated player.
 - Publish them as posts that other people can launch instantly.
 
@@ -175,13 +172,13 @@ Vibecodr is built around the idea that creative work gets better when it is shar
 That means:
 
 - I optimize for sharing, discovery, remixing, and attribution.
-- I want the default interaction to be "I tried it" instead of "nice!".
+- I want the default interaction to be "I tried it" instead of "This is PERFECT!".
 - I treat creators as people, not content factories.
 
 In practice, "Be Social" looks like:
 
 - Posting runnable work, not just announcements.
-- Remixing openly and giving credit by default.
+- Remixing openly and giving credit by default, VC handles this for you through our family trees. 
 - Leaving feedback that helps ("here is what I tried") instead of vague praise or dunking.
 - Building a culture where people can be early, unfinished, and still respected.
 
@@ -365,7 +362,7 @@ The browser runtime does not get platform secrets. If you need a secret, the cor
 
 ### Sensitive capabilities are explicit
 
-Certain behaviors are inherently sensitive (clipboard, popups, downloads, etc.). Vibecodr treats capability access as something that should be visible and intentional - not silently granted by default.
+Certain behaviors are inherently sensitive (clipboard, popups, downloads, etc.). Vibecodr treats capability access as something that should be visible and intentional - not silently granted by default. (You'll get a popup from the runtime asking for permission)
 
 ### Reporting and moderation exist
 
@@ -380,7 +377,7 @@ I am not pretending this is a self-moderating utopia. Safety is a product featur
 ### What you should still assume as a user
 
 - You are running someone else's code in your browser. Do not grant trust by default.
-- Vibecodr does not magically make untrusted code safe; it aims to contain it.
+- Vibecodr does not magically make untrusted code safe; it aims to contain it and catch it before it can do any hard during before bundling even occurs. 
 - If you see suspicious behavior, report it. If you are unsure, close it.
 
 ---
@@ -423,9 +420,11 @@ If Vibecodr succeeds, it should feel like a workshop with a public door, not a c
 ## What Vibecodr is not (boundaries)
 
 - Not a general-purpose hosting platform for arbitrary servers.
-- Not a place to run Node.js servers inside a vibe.
-- Not a substitute for production ops, SLAs, or compliance programs.
-- Not open source by default (there is no license file; all rights reserved unless one is added).
+- Not a place to run Node.js servers inside a vibe, that's what pulses are for. 
+- Not a substitute for production ops, SLAs, or compliance programs, we're working on it, but for now it's just me building this and enterprise scares me <3
+- Not open source by default (there is no license file; all rights reserved unless one is added) - this is not because I'm not a fan of OSS, on the contrary I have put so much thought into this, but, due to the nature of the platform, 
+revealing all inner-working is itself a security risk, at some point I may or may not go fully open source, but I will opensource systems and pieces of the architecture that I believe are helpful, and show what's most important in vibecodr
+over time. 
 
 ---
 
@@ -452,7 +451,7 @@ Vibecodr is a social platform. Treat public content as public:
 - Do not post secrets or personal data you would not want redistributed.
 - When you run a vibe, you are running untrusted code in your browser. Do not type sensitive information into random inputs.
 
-This section is not a legal policy; it is a reality check.
+This section is not a legal policy; it is a reality check, for our official policies concerning privacy, you can find them at https://vibecodr.space/privacy and our terms and conditions at https://vibecodr.space/terms
 
 ---
 
@@ -470,13 +469,13 @@ Vibecodr is actively evolving. Expect:
 Paid tiers / billing:
 
 - Paid plans exist, with limits enforced in code (storage, pulses, secrets, etc.).
-- Billing and subscriptions are handled via Stripe (checkout + customer portal) when enabled in the environment.
+- Billing and subscriptions are handled via Stripe (checkout + customer portal)
 - I'm not trying to maximize revenue. I'm trying to keep the lights on while building something useful.
 
 Self-hosting:
 
 - The production architecture is Cloudflare-specific (Workers, D1, R2, KV, Queues, Analytics Engine).
-- This repo is not presented as a one-command self-hostable product.
+- This repo is not presented or represented as a one-command self-hostable product.
 
 ---
 
@@ -498,9 +497,9 @@ This is a solo project (for now). If something's broken, if you have an idea, or
 
 - Open an issue on this repo
 - Email: founder@vibecodr.space
-- Or just publish a vibe and tag me in it—seriously, that's the best way
+- Or just publish something in vibecodr.space/conversations, seriously, that's the best way I check that page probably 6 times a day hoping to hear back from the early community. 
 
-I read everything. I don't always respond immediately, but I do respond.
+I read everything. I don't always respond immediately, but I do respond, and I do respond to any issues/bugs immediatly. 
 
 ---
 
@@ -508,7 +507,7 @@ I read everything. I don't always respond immediately, but I do respond.
 
 ### Can I use React? Vue? That new framework that came out yesterday?
 
-Often, yes - Vibecodr is built to support common browser frameworks and libraries. If a dependency fails to load in the runtime, treat it as an environment constraint and adjust (or remix into a simpler approach).
+Often, yes - Vibecodr is built to support common browser frameworks and libraries. If a dependency fails to load in the runtime, treat it as an environment constraint and adjust (or remix into a simpler approach), then submit a request for expansion and most likely I will get it done. 
 
 ### Where does my vibe run?
 
@@ -528,11 +527,11 @@ The production system is Cloudflare-specific and this repo is not intended as a 
 
 ### Is Vibecodr "done"?
 
-No. Vibecodr is in active development. Expect iteration. If you are relying on a particular feature for something important, verify it in the product rather than assuming.
+No. Vibecodr is in active development. Expect iteration.
 
 ---
 
 ## Links
 
 - Web app: https://vibecodr.space
-- API health: https://api.vibecodr.space/health  you know my voice that I like to use better than anyone, how is this readme for the public facing document?
+- API health: https://api.vibecodr.space/health
